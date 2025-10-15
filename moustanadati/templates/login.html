@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login GED</title>
+</head>
+<body>
+    <h2>Connexion</h2>
+    {% with messages = get_flashed_messages(category_filter=["error"]) %}
+      {% if messages %}
+        {% for msg in messages %}
+          <p style="color:red;">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form method="post" action="{{ url_for('login_user') }}">
+        <label>Username :</label><br>
+        <input type="text" name="username"><br>
+        <label>Password :</label><br>
+        <input type="password" name="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
